@@ -29,9 +29,11 @@ export default function Halaman3() {
 
     switch (voucherCode) {
       case "DISKON":
-        const discountRate = 0.35;
-        const voucherDiscount = price * totalPaket * discountRate;
-        const discountedPrice = price * totalPaket - voucherDiscount;
+        const discountPercentage = 20;
+        const discountMultiplier = discountPercentage / 100;
+        const originalPrice = price * totalPaket;
+        const discountedAmount = originalPrice * discountMultiplier;
+        const discountedPrice = originalPrice - discountedAmount;
         setTotalHarga(discountedPrice);
         break;
       default:
@@ -39,13 +41,13 @@ export default function Halaman3() {
     }
   }
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: 'lightblue' }}>
       <View style={styles.container}>
 
         <View style={styles.container2}>
           <Text style={styles.Text1}>React native untuk pemula</Text>
           <Text style={styles.Text2}>Price</Text>
-          <Text style={styles.Text3}>Rp 200.000 / paket</Text>
+          <Text style={styles.Text3}>Rp {price} / paket</Text>
         </View>
 
         <View style={styles.container3}>
@@ -87,13 +89,12 @@ const styles = StyleSheet.create({
     backgroundColor: "lightblue",
   },
   container2: {
-    backgroundColor: "azure",
     flex: 1,
   },
   Text1: {
     margin: 15,
     fontWeight: '500',
-    fontSize: 20,
+    fontSize: 25,
   },
   Text2: {
     marginTop: 5,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginLeft: 15,
     fontWeight: '600',
-    fontSize: 15,
+    fontSize: 20,
   },
   container3: {
     margin: 25,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   container4: {
-    marginTop: 15,
+    marginTop: 50,
     flexDirection: "row",
     flex: 1,
     justifyContent: 'center'
@@ -124,19 +125,20 @@ const styles = StyleSheet.create({
   priceButton: {
     marginTop: 10,
     backgroundColor: "#0a8ed9",
-    padding: 8,
-    borderRadius: 6,
+    padding: 20,
+    borderRadius: 15,
     marginHorizontal: 20,
-    width: 100
+    width: 120,
   },
   priceText: {
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 18,
   },
   input: {
-    padding: 5,
-    borderWidth: 1,
-    borderRadius: 15,
+    padding: 10,
+    borderWidth: 2,
+    borderRadius: 10,
     marginVertical: 10,
   },
   labelInput: {

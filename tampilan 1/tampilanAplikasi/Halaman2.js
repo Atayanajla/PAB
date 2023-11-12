@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     Text4: {
         marginLeft: 10,
         marginTop: 5,
-        fontSize: 15,
+        fontSize: 20,
     },
     iconuser: {
         flexDirection: "row",

@@ -27,18 +27,28 @@ export default function Halaman1({navigation}) {
                 </View>
 
                 <View style={styles.container4}>
-                    <TouchableOpacity style={styles.button}>
-                        <Text>React</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
-                        <Text>Flutter</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
-                        <Text>Golang</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
-                        <Text>Lara</Text>
-                    </TouchableOpacity>
+                    <ScrollView
+                        horizontal
+                    >
+                        <TouchableOpacity style={styles.button}>
+                            <Text>React</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button}>
+                            <Text>Flutter</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button}>
+                            <Text>Golang</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button}>
+                            <Text>Laravel</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button}>
+                            <Text>JavaScript</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button}>
+                            <Text>PHP</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
                 </View>
 
                 <View style={styles.container5}>
@@ -49,23 +59,25 @@ export default function Halaman1({navigation}) {
                 </View>
 
                 <View style={styles.container6}>
-                    <View style={styles.imageContainer}>
-                        <TouchableOpacity style={styles.imageItem} onPress={Halaman2}>
-                            <Image source={require("../assets/gambar1.jpg")} style={styles.image} />
-                            <View style={styles.merekContainer}>
-                                <Text style={styles.judul}>Laravel sebentar</Text>
-                                <Text style={styles.bawahJudul}>Khusus pemula</Text>
-                            </View>
-                        </TouchableOpacity>
+                    <ScrollView horizontal>
+                        <View style={styles.imageContainer}>
+                            <TouchableOpacity style={styles.imageItem} onPress={Halaman2}>
+                                <Image source={require("../assets/gambar1.jpg")} style={styles.image} />
+                                <View style={styles.merekContainer}>
+                                    <Text style={styles.judul}>Laravel sebentar</Text>
+                                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
+                                </View>
+                            </TouchableOpacity>
 
-                        <View style={styles.imageItem}>
-                            <Image source={require("../assets/gambar2.jpg")} style={styles.image} />
-                            <View style={styles.merekContainer}>
-                                <Text style={styles.judul}>Laravel sebentar</Text>
-                                <Text style={styles.bawahJudul}>Khusus pemula</Text>
+                            <View style={styles.imageItem}>
+                                <Image source={require("../assets/gambar2.jpg")} style={styles.image} />
+                                <View style={styles.merekContainer}>
+                                    <Text style={styles.judul}>Laravel sebentar</Text>
+                                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
+                    </ScrollView>
                 </View>
 
                 <View style={styles.container5}>
@@ -150,9 +162,9 @@ const styles = StyleSheet.create({
     },
     button: {
         marginRight: 20,
-        backgroundColor: "azure",
-        padding: 8,
-        borderRadius: 6,
+        backgroundColor: "#0a8ed9",
+        padding: 15,
+        borderRadius: 10,
     },
     container5: {
         flexDirection: "row",
