@@ -6,6 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 export default function Halaman1({navigation}) {
     const Halaman2 = () => navigation.navigate('Halaman 2')
     const Halaman4 = () => navigation.navigate('Halaman 4')
+    const Halaman5 = () => navigation.navigate('Halaman 5')
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -83,7 +84,7 @@ export default function Halaman1({navigation}) {
 
                 <View style={styles.container5}>
                     <Text style={styles.TextLeft}>Rekomendasi</Text>
-                    <TouchableOpacity style={styles.seeMoreButton}>
+                    <TouchableOpacity style={styles.seeMoreButton} onPress={Halaman5}>
                         <Text style={styles.ButtonText}>See More</Text>
                     </TouchableOpacity>
                 </View>
