@@ -1,16 +1,30 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Image, } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Image, FlatList, } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { FontAwesome } from '@expo/vector-icons';
+import axios from "axios";
 
 export default function Halaman1({navigation}) {
     const Halaman2 = () => navigation.navigate('Halaman 2')
     const seeMorePopuler = () => navigation.navigate('All Populer')
     const seeMoreRekomendasi = () => navigation.navigate('All Rekomendasi')
+    const [courseRekomendasi, setRekomendasiCourse] = useState([])
+
+    useEffect(() => {
+        const fetching = async() => {
+            await axios.get('https://fc64-2404-8000-1027-1608-9d8a-98e0-f2f-6ead.ngrok-free.app/courses')
+            .then((dataCourse) => {
+                console.log(dataCourse.data)
+                setRekomendasiCourse(dataCourse.data)
+            }).catch((e) => {
+                console.error(e)
+            })
+        }
+        fetching()
+    }, [])
     return (
         <ScrollView>
             <View style={styles.container}>
-
                 <View style={styles.container2}>
                     <Text>Kategori</Text>
                     <TouchableOpacity>
@@ -89,41 +103,28 @@ export default function Halaman1({navigation}) {
                         <Text style={styles.ButtonText}>See More</Text>
                     </TouchableOpacity>
                 </View>
-
-                <View style={styles.container7}>
-                    <View style={styles.container8}>
-                        <View style={styles.imageItem2}>
-                            <Image source={require("../assets/gambar1.jpg")} style={styles.image2} />
-                        </View>
-                        <View style={styles.ket}>
-                            <Text style={styles.Text2}>Laravel dalam 20 hari</Text>
-                            <Text style={styles.Text3}>free</Text>
-                            <View style={styles.ket2}>
-                                <FontAwesome name="bed" size={24} color="#aeaeae" />
-                                <Text>60 Video</Text>
-                                <FontAwesome name="bathtub" size={24} color="#aeaeae" />
-                                <Text>4 Quiz</Text>
+                {courseRekomendasi.map((item) => {
+                    return (
+                        <View style={styles.container7}>
+                            <View style={styles.container8}>
+                                <View style={styles.imageItem2}>
+                                    <Image source={{ uri: item.Gambar }} style={styles.image2} />
+                                </View>
+                                <View style={styles.ket}>
+                                    <Text style={styles.Text2}>{item.Course}</Text>
+                                    <Text style={styles.Text3}>Rp {item.Harga} / paket</Text>
+                                    <View style={styles.ket2}>
+                                        <FontAwesome name="bed" size={24} color="#aeaeae" />
+                                        <Text>{item.Pengajar}</Text>
+                                        <FontAwesome name="bathtub" size={24} color="#aeaeae" />
+                                        <Text>4 Quiz</Text>
+                                    </View>
+                                </View>
                             </View>
                         </View>
-                    </View>
+                            )
+                        })}
 
-                    <View style={styles.container8}>
-                        <View style={styles.imageItem2}>
-                            <Image source={require("../assets/gambar1.jpg")} style={styles.image2} />
-                        </View>
-                        <View style={styles.ket}>
-                            <Text style={styles.Text2}>React advance 30 hari</Text>
-                            <Text style={styles.Text3}>Rp 200.000 / paket</Text>
-                            <View style={styles.ket2}>
-                                <FontAwesome name="bed" size={24} color="#aeaeae" />
-                                <Text>60 Video</Text>
-                                <FontAwesome name="bathtub" size={24} color="#aeaeae" />
-                                <Text>4 Quiz</Text>
-                            </View>
-                        </View>
-                    </View>
-
-                </View>
 
             </View>
         </ScrollView>
