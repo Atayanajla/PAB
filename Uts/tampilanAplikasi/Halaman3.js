@@ -1,6 +1,5 @@
 import React from "react";
 import { View,Text,StyleSheet, ScrollView, TouchableOpacity, TextInput} from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
 
 export default function Halaman3() {

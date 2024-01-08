@@ -2,30 +2,31 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export default function Halaman2({navigation}) {
+export default function Halaman2({ navigation, route }) {
     const Halaman3 = () => navigation.navigate('Halaman 3')
+    const { gambar, deskripsi, harga, course, pengajar } = route.params
     return (
         <ScrollView>
             <View style={styles.container}>
 
                 <View style={styles.container2}>
-                    <Image source={require('../assets/gambar1.jpg')} style={{ width: '100%', height: 300, borderRadius: 30, marginBottom: 30 }} />
+                    <Image source={{ uri: gambar }} style={{ width: '100%', height: 300, borderRadius: 30, marginBottom: 30 }} />
                     <View style={styles.merekContainer}>
-                        <Text style={styles.judul}>Laravel sebentar</Text>
+                        <Text style={styles.judul}>{course}</Text>
                         <Text style={styles.bawahJudul}>Khusus pemula</Text>
                     </View>
                 </View>
 
                 <View style={styles.container3}>
                     <Text style={styles.Text1}>Deskripsi</Text>
-                    <Text style={styles.Text2}>Course ini untuk mereka yang benar-benar mau belajar tentang react native....</Text>
+                    <Text style={styles.Text2}>{ deskripsi }</Text>
                 </View>
 
                 <View style={styles.container4}>
                     <View style={styles.user}>
                         <Image source={require('../assets/gambar1.jpg')} style={{ width: 50, height: 50, borderRadius: 10 }} />
                         <View style={styles.user2}>
-                            <Text style={styles.Text3}>Ataya Najla</Text>
+                            <Text style={styles.Text3}>{ pengajar }</Text>
                             <Text style={styles.Text4}>main tutor</Text>
                         </View>
                     </View>
@@ -62,7 +63,7 @@ export default function Halaman2({navigation}) {
                 <View style={styles.container6}>
                     <View style={styles.price}>
                         <Text style={styles.Text3}>Price</Text>
-                        <Text style={styles.Text4}>Rp 200.000 / paket</Text>
+                        <Text style={styles.Text4}>{ harga }</Text>
                     </View>
 
                     <View style={styles.button}>

@@ -12,7 +12,7 @@ export default function Halaman1({navigation}) {
 
     useEffect(() => {
         const fetching = async() => {
-            await axios.get('https://fc64-2404-8000-1027-1608-9d8a-98e0-f2f-6ead.ngrok-free.app/courses')
+            await axios.get('https://0ee5-2404-8000-1027-16d4-a159-d76f-2063-d83c.ngrok-free.app/courses')
             .then((dataCourse) => {
                 console.log(dataCourse.data)
                 setRekomendasiCourse(dataCourse.data)
@@ -23,111 +23,132 @@ export default function Halaman1({navigation}) {
         fetching()
     }, [])
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={styles.container2}>
-                    <Text>Kategori</Text>
-                    <TouchableOpacity>
-                        <Ionicons name="notifications" size={24} color="black" />
-                    </TouchableOpacity>
-                </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.container2}>
+            <Text>Kategori</Text>
+            <TouchableOpacity>
+              <Ionicons name="notifications" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
 
-                <View style={styles.cont35}>
-                    <View style={styles.container3}>
-                        <TextInput style={styles.input} placeholder="Search..." />
-                        <Ionicons name="search" size={24} color="black" style={styles.icon2} />
-                    </View>
-                    <View style={styles.iconSet}>
-                        <Ionicons name="settings-outline" size={24} color="white" />
-                    </View>
-                </View>
-
-                <View style={styles.container4}>
-                    <ScrollView
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    >
-                        <TouchableOpacity style={styles.button}>
-                            <Text>React</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
-                            <Text>Flutter</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
-                            <Text>Golang</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
-                            <Text>Laravel</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
-                            <Text>JavaScript</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button}>
-                            <Text>PHP</Text>
-                        </TouchableOpacity>
-                    </ScrollView>
-                </View>
-
-                <View style={styles.container5}>
-                    <Text style={styles.TextLeft}>Populer</Text>
-                    <TouchableOpacity style={styles.seeMoreButton} onPress={seeMorePopuler}>
-                        <Text style={styles.ButtonText}>See More</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.container6}>
-                    <ScrollView horizontal>
-                        <View style={styles.imageContainer}>
-                            <TouchableOpacity style={styles.imageItem} onPress={Halaman2}>
-                                <Image source={require("../assets/gambar1.jpg")} style={styles.image} />
-                                <View style={styles.merekContainer}>
-                                    <Text style={styles.judul}>Laravel sebentar</Text>
-                                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
-                                </View>
-                            </TouchableOpacity>
-
-                            <View style={styles.imageItem}>
-                                <Image source={require("../assets/gambar2.jpg")} style={styles.image} />
-                                <View style={styles.merekContainer}>
-                                    <Text style={styles.judul}>Laravel sebentar</Text>
-                                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </ScrollView>
-                </View>
-
-                <View style={styles.container5}>
-                    <Text style={styles.TextLeft}>Rekomendasi</Text>
-                    <TouchableOpacity style={styles.seeMoreButton} onPress={seeMoreRekomendasi}>
-                        <Text style={styles.ButtonText}>See More</Text>
-                    </TouchableOpacity>
-                </View>
-                {courseRekomendasi.map((item) => {
-                    return (
-                        <View style={styles.container7}>
-                            <View style={styles.container8}>
-                                <View style={styles.imageItem2}>
-                                    <Image source={{ uri: item.Gambar }} style={styles.image2} />
-                                </View>
-                                <View style={styles.ket}>
-                                    <Text style={styles.Text2}>{item.Course}</Text>
-                                    <Text style={styles.Text3}>Rp {item.Harga} / paket</Text>
-                                    <View style={styles.ket2}>
-                                        <FontAwesome name="bed" size={24} color="#aeaeae" />
-                                        <Text>{item.Pengajar}</Text>
-                                        <FontAwesome name="bathtub" size={24} color="#aeaeae" />
-                                        <Text>4 Quiz</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                            )
-                        })}
-
-
+          <View style={styles.cont35}>
+            <View style={styles.container3}>
+              <TextInput style={styles.input} placeholder="Search..." />
+              <Ionicons
+                name="search"
+                size={24}
+                color="black"
+                style={styles.icon2}
+              />
             </View>
-        </ScrollView>
+            <View style={styles.iconSet}>
+              <Ionicons name="settings-outline" size={24} color="white" />
+            </View>
+          </View>
+
+          <View style={styles.container4}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <TouchableOpacity style={styles.button}>
+                <Text>React</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text>Flutter</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text>Golang</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text>Laravel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text>JavaScript</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}>
+                <Text>PHP</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+
+          <View style={styles.container5}>
+            <Text style={styles.TextLeft}>Populer</Text>
+            <TouchableOpacity
+              style={styles.seeMoreButton}
+              onPress={seeMorePopuler}
+            >
+              <Text style={styles.ButtonText}>See More</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.container6}>
+            <ScrollView horizontal>
+              <View style={styles.imageContainer}>
+                <TouchableOpacity style={styles.imageItem} onPress={Halaman2}>
+                  <Image
+                    source={require("../assets/gambar1.jpg")}
+                    style={styles.image}
+                  />
+                  <View style={styles.merekContainer}>
+                    <Text style={styles.judul}>Laravel sebentar</Text>
+                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
+                  </View>
+                </TouchableOpacity>
+
+                <View style={styles.imageItem}>
+                  <Image
+                    source={require("../assets/gambar2.jpg")}
+                    style={styles.image}
+                  />
+                  <View style={styles.merekContainer}>
+                    <Text style={styles.judul}>Laravel sebentar</Text>
+                    <Text style={styles.bawahJudul}>Khusus pemula</Text>
+                  </View>
+                </View>
+              </View>
+            </ScrollView>
+          </View>
+
+          <View style={styles.container5}>
+            <Text style={styles.TextLeft}>Rekomendasi</Text>
+            <TouchableOpacity
+              style={styles.seeMoreButton}
+              onPress={seeMoreRekomendasi}
+            >
+              <Text style={styles.ButtonText}>See More</Text>
+            </TouchableOpacity>
+          </View>
+          {courseRekomendasi.map((item) => {
+            return (
+              <TouchableOpacity style={styles.container7} onPress={() => navigation.navigate('Halaman 2', {
+                gambar: item.Gambar,
+                deskripsi: item.Deskripsi,
+                harga: item.Harga,
+                course: item.Course,
+                pengajar: item.Pengajar
+              })}>
+                <View style={styles.container8} key={item.ID}>
+                  <View style={styles.imageItem2}>
+                    <Image
+                      source={{ uri: item.Gambar }}
+                      style={styles.image2}
+                    />
+                  </View>
+                  <View style={styles.ket}>
+                    <Text style={styles.Text2}>{item.Course}</Text>
+                    <Text style={styles.Text3}>Rp {item.Harga} / paket</Text>
+                    <View style={styles.ket2}>
+                      <FontAwesome name="bed" size={24} color="#aeaeae" />
+                      <Text>{item.Pengajar}</Text>
+                      <FontAwesome name="bathtub" size={24} color="#aeaeae" />
+                      <Text>4 Quiz</Text>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )
+          })}
+        </View>
+      </ScrollView>
     );
 }
 
@@ -153,9 +174,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 25
     },
-    // input: {
-
-    // },
+  
     icon2: {
         marginRight: 10,
     },
