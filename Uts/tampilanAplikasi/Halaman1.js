@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Image,
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { FontAwesome } from '@expo/vector-icons';
 import axios from "axios";
+import PencarianRekomendasi from "../partitions/PencarianRekomendasi";
 
 export default function Halaman1({navigation}) {
     const Halaman2 = () => navigation.navigate('Halaman 2')
@@ -12,7 +13,7 @@ export default function Halaman1({navigation}) {
 
     useEffect(() => {
         const fetching = async() => {
-            await axios.get('https://0ee5-2404-8000-1027-16d4-a159-d76f-2063-d83c.ngrok-free.app/courses')
+            await axios.get('https://4d40-36-72-248-148.ngrok-free.app/courses')
             .then((dataCourse) => {
                 console.log(dataCourse.data)
                 setRekomendasiCourse(dataCourse.data)
@@ -32,20 +33,7 @@ export default function Halaman1({navigation}) {
             </TouchableOpacity>
           </View>
 
-          <View style={styles.cont35}>
-            <View style={styles.container3}>
-              <TextInput style={styles.input} placeholder="Search..." />
-              <Ionicons
-                name="search"
-                size={24}
-                color="black"
-                style={styles.icon2}
-              />
-            </View>
-            <View style={styles.iconSet}>
-              <Ionicons name="settings-outline" size={24} color="white" />
-            </View>
-          </View>
+          <PencarianRekomendasi styles={styles} setRekomendasiCourse={setRekomendasiCourse}/>
 
           <View style={styles.container4}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
